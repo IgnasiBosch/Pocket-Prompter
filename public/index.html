@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="css/selectize.bootstrap3.css">
+
+    <title></title>
+</head>
+<body>
+<div class="container" ng-controller="AppCtrl">
+    <h1>Command Glossary</h1>
+    <table class="table">
+        <thead>
+        <th>Command</th>
+        <th>Description</th>
+        <th>Tags</th>
+        <th>&nbsp;</th>
+        </thead>
+        <tbody>
+        <tr>
+            <td><input class="form-control" ng-model="command.command"></td>
+            <td><input class="form-control" ng-model="command.description"></td>
+            <td><input class="form-control input-tags" ng-model="command.tags">
+            </td>
+            <td>
+                <button class="btn btn-info" ng-click="searchCommand()">Search</button>
+                <button class="btn btn-primary" ng-click="addCommand()">Add</button>
+                <button class="btn btn-info" ng-click="updateCommand()">Update</button>
+                <button class="btn btn-info" ng-click="clearCommand()">Clear</button>
+            </td>
+        </tr>
+        <tr ng-repeat="_command in commands">
+            <td>{{_command.command}}</td>
+            <td>{{_command.description}}</td>
+            <td><span class="label label-primary" ng-repeat="tag in _command.tags" style="margin-left: 3px">{{tag}}</span></td>
+            <td>
+                <button class="btn btn-danger" ng-click="removeCommand(_command._id)">Remove</button>
+                <button class="btn btn-warning" ng-click="editCommand(_command._id)">Edit</button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<script src="js/jquery-1.11.min.js"></script>
+<script src="js/selectize.js"></script>
+<script src="js/angular.min.js"></script>
+<script src="js/controllers/controller.js"></script>
+<script src="js/angular-selelectize.js"></script>
+<script>
+    var $sel = $('.input-tags').selectize({
+        plugins: ['remove_button'],
+        delimiter: ',',
+        sortField:'value',
+        create: function (input) {
+            return {
+                value: input,
+                text: input
+            }
+        }
+    });
+
+    var sel = $sel[0].selectize;
+
+</script>
+
+</body>
+</html>
