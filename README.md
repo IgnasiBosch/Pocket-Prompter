@@ -5,11 +5,6 @@ Run vagrant
 $ vagrant up
 ```
 
-Vagrant provision
-```
-$ vagrant provision
-```
-
 Enter to vagrant ssh
 ```
 $ vagrant ssh
@@ -32,5 +27,5 @@ $ ./run_server.sh
 
 Browse
 ```
-10.0.0.1:3000
+10.0.0.105:3000
 ```
