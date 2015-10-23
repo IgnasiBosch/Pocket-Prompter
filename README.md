@@ -1,31 +1,13 @@
 # Pocket Prompter
-
+## Installation:
 Run vagrant
 ```
 $ vagrant up
 ```
 
-Enter to vagrant ssh
-```
-$ vagrant ssh
-```
-
-To application path
-```
-$ cd /vagrant
-```
-
-Install dependencies
-```
-$ npm install
-```
-
-Run server
-```
-$ ./run_server.sh
-```
-
 Browse
 ```
-10.0.0.105:3000
+http://pocket-prompter.vm:3000
+or
+http://10.0.0.10:3000
 ```

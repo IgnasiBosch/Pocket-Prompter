@@ -18,4 +18,13 @@ class nodejs
     ensure  => present
   }
 
+  # Install app dependencies
+  exec { "app-npm-install":
+    require => Package["npm"],
+    cwd => "/vagrant",
+    command => "npm install",
+    creates => "/vagrant/node_modules",
+    timeout => 0
+  }
+
 }

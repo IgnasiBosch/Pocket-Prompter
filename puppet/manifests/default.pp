@@ -10,3 +10,4 @@ exec { "package-manager-update":
 
 include mongodb
 include nodejs
+include app
